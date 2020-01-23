@@ -8,7 +8,7 @@ $link = new PDO(
 );
 $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-$sql = "SELECT idCategoria, catNombre4 
+$sql = "SELECT idCategoria, catNombre 
             FROM categorias";
 $stmt = $link->prepare($sql);
 $stmt->execute();
