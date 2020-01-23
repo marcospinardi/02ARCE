@@ -1,15 +1,14 @@
 <?php
 
-//$opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-
 $link = new PDO(
     'mysql:host=localhost;dbname=catalogo',
     'root',
-    'root'
+    'root',
+    $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
 );
-//$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-$sql = "SELECT idCategoria, catNombre 
+$sql = "SELECT idCategoria, catNombre4 
             FROM categorias";
 $stmt = $link->prepare($sql);
 $stmt->execute();
