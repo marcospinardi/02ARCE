@@ -1,13 +1,7 @@
 <?php
-
-    require 'clases/Conexion.php';
-    require 'clases/Categoria.php';
-    $objCategoria = new Categoria;
-    $categorias = $objCategoria->listarCategorias();
-
 ?>
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -17,18 +11,18 @@
     <title>Document</title>
 </head>
 <body>
-    <main class="container">
-        <h1>listado del mal</h1>
-        <ul class="list-group">
-<?php
-            foreach ( $categorias as $categoria ){
-?>
-            <li class="list-group-item"><?php echo $categoria['idCategoria'], ' ', $categoria['catNombre']; ?></li>
-<?php
-            }
-?>
-        </ul>
-    </main>
+
+<main class="container">
+    <div class="alert bg-light">
+        <form action="agregarCategoria.php" method="post">
+            Nombre
+            <br>
+            <input type="text" name="catNombre" class="form-control">
+            <br>
+            <button class="btn btn-dark">agregar</button>
+        </form>
+    </div>
+</main>
 
 </body>
 </html>

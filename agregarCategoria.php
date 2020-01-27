@@ -1,13 +1,12 @@
 <?php
-
     require 'clases/Conexion.php';
     require 'clases/Categoria.php';
     $objCategoria = new Categoria;
-    $categorias = $objCategoria->listarCategorias();
 
+    $chequeo = $objCategoria->agregarCategoria();
 ?>
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -17,18 +16,21 @@
     <title>Document</title>
 </head>
 <body>
-    <main class="container">
-        <h1>listado del mal</h1>
-        <ul class="list-group">
+
+<main class="container">
 <?php
-            foreach ( $categorias as $categoria ){
+        $mensaje = 'No pudo agregarse la Categoria';
+        $clase = 'danger';
+        if( $chequeo ){
+            $mensaje = 'Categoria: '.$objCategoria->getCatNombre();
+            $mensaje .= ' agregada corectamente';
+            $clase = 'success';
+        }
 ?>
-            <li class="list-group-item"><?php echo $categoria['idCategoria'], ' ', $categoria['catNombre']; ?></li>
-<?php
-            }
-?>
-        </ul>
-    </main>
+    <div class="alert alert-<?= $clase ?>">
+        <?= $mensaje; ?>
+    </div>
+</main>
 
 </body>
 </html>
